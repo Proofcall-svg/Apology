@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f3e6fb">
+<title>A letter for you ❤️</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e58bb0' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Great+Vibes&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FFF8F1;--blush:#F4A6C1;--lav:#C9A8F0;--lav2:#EADDF7;--purple:#8A5CD6;--ink:#4B3A63}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{min-height:100svh;font-family:Lora,Georgia,serif;color:var(--ink);background:var(--cream);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+ background:radial-gradient(60% 45% at 15% 8%,#f3e1ff 0,transparent 62%),radial-gradient(55% 40% at 95% 28%,#ffe2ec 0,transparent 60%),radial-gradient(70% 50% at 50% 105%,#eadcff 0,transparent 70%),var(--cream)}
+::selection{background:#f9d3e3}
+svg{display:block}
+/* floating hearts + sparkles (decor) */
+.fx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.h{position:absolute;bottom:-40px;fill:var(--c);opacity:0;animation:rise linear infinite;will-change:transform}
+.h svg{width:100%;height:100%;fill:inherit}
+@keyframes rise{0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}10%{opacity:.5}85%{opacity:.35}100%{opacity:0;transform:translate3d(var(--dx),-112vh,0) rotate(var(--r))}}
+.sp{position:absolute;width:var(--s);height:var(--s);background:#dcc6ff;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:tw var(--t) ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:.85;transform:scale(1) rotate(45deg)}}
+/* envelope stage */
+.stage{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:42px;padding:24px;transition:opacity .9s ease,transform .9s ease}
+.stage.gone{opacity:0;transform:scale(1.1);pointer-events:none}
+.env{position:relative;width:min(84vw,340px);aspect-ratio:3/2;perspective:900px;filter:drop-shadow(0 18px 28px rgba(138,92,214,.28));animation:drop 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes drop{from{opacity:0;transform:translateY(26px) scale(.96)}}
+.env>*{position:absolute}
+.back{inset:0;background:#e3d2f5;border-radius:10px}
+.card{left:6%;right:6%;top:7%;height:86%;z-index:1;border-radius:6px;background:linear-gradient(#fffdf9,#fff3ea);box-shadow:0 0 0 1px rgba(201,168,240,.4);display:grid;place-items:center;transition:transform 1.1s cubic-bezier(.3,.7,.2,1) .95s}
+.card svg{width:26px;height:26px;fill:var(--blush)}
+.front{inset:0;z-index:2;border-radius:10px;background:linear-gradient(165deg,#f5eafc,#ecdcf7);clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%)}
+.flap{left:0;right:0;top:0;height:56%;z-index:3;transform-origin:top;background:linear-gradient(#e6d3f6,#d9bff0);clip-path:polygon(0 0,100% 0,50% 100%);transition:transform .9s ease,z-index 0s .45s}
+.seal{left:50%;top:56%;z-index:4;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#f7b4cb,#d9638f);box-shadow:0 3px 8px rgba(160,60,110,.35);transition:opacity .4s,transform .4s}
+.seal svg{width:22px;height:22px;fill:#fff}
+.env.open .flap{transform:rotateX(180deg);z-index:0}
+.env.open .seal{opacity:0;transform:scale(.5)}
+.env.open .card{transform:translateY(-62%)}
+.open-btn{font:600 1.65rem/1 'Dancing Script',cursive;color:#fff;padding:16px 34px;border:0;border-radius:99px;cursor:pointer;background:linear-gradient(120deg,#8A5CD6,#b8579f);box-shadow:0 10px 24px rgba(138,92,214,.35);animation:fadein 1s ease 1.1s both,pulse 2.6s ease-in-out 2.2s infinite;transition:transform .2s}
+.open-btn:hover{transform:translateY(-2px)}
+.open-btn:focus-visible{outline:3px solid var(--blush);outline-offset:4px}
+.open-btn:disabled{animation:none;opacity:.5;cursor:default}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}}
+@keyframes pulse{50%{box-shadow:0 10px 30px rgba(184,87,159,.55)}}
+/* letter */
+.letter{padding:calc(28px + env(safe-area-inset-top)) 14px calc(48px + env(safe-area-inset-bottom));opacity:0;transform:translateY(18px);transition:opacity 1.1s ease,transform 1.1s ease}
+.letter.in{opacity:1;transform:none}
+.paper{position:relative;max-width:560px;margin:0 auto;padding:44px 26px 34px;border-radius:20px;background:linear-gradient(#fffcf7,#fff5ee);box-shadow:0 24px 60px rgba(138,92,214,.22),0 0 0 1px rgba(201,168,240,.4)}
+.paper::before{content:"";position:absolute;inset:9px;border-radius:13px;border:1px solid rgba(201,168,240,.45);pointer-events:none}
+.orn{width:120px;height:18px;margin:0 auto 30px;fill:none;stroke:var(--lav);stroke-width:1.4;stroke-linecap:round}
+.orn svg{fill:var(--blush);stroke:none}
+.body{font-size:1.07rem;line-height:1.95;letter-spacing:.005em}
+.body p+p{margin-top:1.4em}
+.princess{text-align:center;margin-top:2em!important}
+.script{font-family:'Great Vibes',cursive;font-size:2.75rem;line-height:1.25;color:var(--purple)}
+@supports (-webkit-background-clip:text) or (background-clip:text){.script{background:linear-gradient(90deg,#8A5CD6,#d3689f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}}
+.sign{margin-top:1.4em;text-align:right;font-family:'Dancing Script',cursive;font-weight:600;font-size:2.3rem;line-height:1.2;color:#7a4fc4;display:flex;justify-content:flex-end;align-items:center;gap:10px}
+.sh{width:22px;height:22px;fill:#e0679a;transform-origin:center}
+.ul{width:150px;height:14px;margin:2px 0 0 auto;fill:none;stroke:var(--lav);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease}
+.show .ul{stroke-dashoffset:0;transition-delay:var(--ul,3s)}
+.done .sh{animation:beat 1.5s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.3)}30%{transform:scale(1)}45%{transform:scale(1.2)}}
+.r{opacity:0;filter:blur(4px);transition:opacity .9s ease,filter .9s ease}
+.show .r{opacity:1;filter:none}
+.b{position:fixed;z-index:6;width:var(--w);height:var(--w);margin:-10px 0 0 -10px;fill:var(--c);pointer-events:none;animation:burst 2.2s ease-out forwards}
+.b svg{width:100%;height:100%;fill:inherit}
+@keyframes burst{0%{opacity:0;transform:translate(0,0) scale(.3)}15%{opacity:.95}100%{opacity:0;transform:translate(var(--bx),var(--by)) scale(1) rotate(var(--r))}}
+.gift{display:flex;justify-content:center;margin:30px auto 0;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 1s ease .7s,transform 1s ease .7s,visibility 0s .7s}
+.done .gift{opacity:1;visibility:visible;transform:none}
+.gift a{display:inline-flex;align-items:center;gap:10px;font:600 1.5rem/1 'Dancing Script',cursive;color:#fff;text-decoration:none;padding:15px 30px;border-radius:99px;background:linear-gradient(120deg,#8A5CD6,#b8579f);box-shadow:0 10px 24px rgba(138,92,214,.35);transition:transform .2s}
+.gift a:hover{transform:translateY(-2px)}
+.gift a:focus-visible{outline:3px solid var(--blush);outline-offset:4px}
+.gift svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media(min-width:600px){.paper{padding:60px 56px 44px}.body{font-size:1.15rem}.script{font-size:3.2rem}.letter{padding-top:48px}}
+@media(prefers-reduced-motion:reduce){.fx{display:none}.env,.open-btn{animation:none}.r{opacity:1;filter:none;transition:none}.ul{stroke-dashoffset:0;transition:none}.done .sh{animation:none}*{transition-duration:.01s!important;transition-delay:0s!important}}
+</style>
+<noscript><style>.letter[hidden]{display:block;opacity:1;transform:none}.stage{display:none}.gift{opacity:1;visibility:visible;transform:none}.r{opacity:1;filter:none}.ul{stroke-dashoffset:0}</style></noscript>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol></svg>
+<div class="fx" id="fx" aria-hidden="true"></div>
+
+<main class="stage" id="stage">
+  <div class="env" id="env" aria-hidden="true">
+    <div class="back"></div>
+    <div class="card"><svg viewBox="0 0 24 24"><use href="#heart"/></svg></div>
+    <div class="front"></div>
+    <div class="flap"></div>
+    <div class="seal"><svg viewBox="0 0 24 24"><use href="#heart"/></svg></div>
+  </div>
+  <button class="open-btn" id="open" type="button">Open my letter ❤️</button>
+</main>
+
+<article class="letter" id="letter" hidden tabindex="-1" aria-label="A letter for you">
+  <div class="paper" id="paper">
+    <svg class="orn" viewBox="0 0 120 18" aria-hidden="true"><path d="M2 9h42M76 9h42"/><svg x="52" y="1" width="16" height="16" viewBox="0 0 24 24"><use href="#heart"/></svg></svg>
+    <div class="body">
+      <p data-reveal>I’m sorry honey, I didn’t mean to piss you off, I just wanted to call with you and I was like super duper tired so I couldn’t think straight, you mean the world to me, your my first, I might be annoying sometimes but I just wanna tell you I still love you no matter what, and I’ll always be with you no matter what ❤️ so please forgive me mommy, I’ll be a good boy and try not to piss you off, but please don’t be mad at me anymore and act jolly like you were acting you were so cute and I loved it.</p>
+      <p class="princess" data-reveal><span class="script">You my princess</span>, are worth more than you think you are to me ❤️</p>
+    </div>
+    <p class="sign" id="sign" data-reveal><span>- Anass</span><svg class="sh" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg></p>
+    <svg class="ul" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 9c20-8 40 4 62-2s46-5 94-2" pathLength="1"/></svg>
+  </div>
+  <div class="gift"><a href="downloads/giftpic.jpg" download="giftpic.jpg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg>Download my gift</a></div>
+</article>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},rnd=function(a,b){return a+Math.random()*(b-a)};
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var COL=['#f4a6c1','#c9a8f0','#f7c6d9','#b793e6'];
+  var HEART='<svg viewBox="0 0 24 24"><use href="#heart"/></svg>';
+  var fx=$('fx');
+  if(!reduce){
+    for(var i=0;i<13;i++){var h=document.createElement('i'),s=rnd(12,28);h.className='h';h.innerHTML=HEART;
+      h.style.cssText='left:'+rnd(0,96)+'%;width:'+s+'px;height:'+s+'px;--c:'+COL[i%4]+';--dx:'+rnd(-70,70)+'px;--r:'+rnd(-28,28)+'deg;animation-duration:'+rnd(17,30)+'s;animation-delay:-'+rnd(0,26)+'s';fx.appendChild(h)}
+    for(var j=0;j<16;j++){var p=document.createElement('i');p.className='sp';
+      p.style.cssText='left:'+rnd(2,97)+'%;top:'+rnd(2,95)+'%;--s:'+rnd(7,14)+'px;--t:'+rnd(3,6)+'s;animation-delay:-'+rnd(0,6)+'s';fx.appendChild(p)}
+  }
+  // split every paragraph into clauses (lossless) so the words can appear one phrase at a time
+  var n=0;
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    Array.prototype.slice.call(el.childNodes).forEach(function(node){
+      if(node.nodeType===3){
+        var f=document.createDocumentFragment();
+        (node.textContent.match(/[^,.]*[,.]?/g)||[]).filter(Boolean).forEach(function(t){var sp=document.createElement('span');sp.className='r';sp.textContent=t;f.appendChild(sp)});
+        node.replaceWith(f);
+      }else if(node.nodeType===1){node.classList.add('r')}
+    });
+  });
+  var items=document.querySelectorAll('.r');
+  items.forEach(function(el,k){el.style.transitionDelay=(k*0.3)+'s';n=k});
+  var total=(n*0.3)+1;
+  $('paper').style.setProperty('--ul',(Math.max(total-1.5,1))+'s');
+
+  function burst(){
+    var r=$('sign').getBoundingClientRect(),x=r.right-24,y=r.top+r.height/2;
+    if(y<0||y>innerHeight){x=innerWidth/2;y=innerHeight*.85}
+    for(var i=0;i<22;i++){var b=document.createElement('i'),w=rnd(12,24);b.className='b';b.innerHTML=HEART;
+      b.style.cssText='left:'+x+'px;top:'+y+'px;--w:'+w+'px;--c:'+COL[i%4]+';--bx:'+rnd(-150,150)+'px;--by:-'+rnd(90,280)+'px;--r:'+rnd(-40,40)+'deg;animation-delay:'+rnd(0,.5)+'s';
+      b.addEventListener('animationend',function(){this.remove()});document.body.appendChild(b)}
+  }
+  function read(){
+    var L=$('letter'),P=$('paper');
+    $('stage').classList.add('gone');L.hidden=false;
+    requestAnimationFrame(function(){requestAnimationFrame(function(){L.classList.add('in');L.focus({preventScroll:true})})});
+    setTimeout(function(){$('stage').style.display='none';P.classList.add('show')},reduce?0:900);
+    setTimeout(function(){L.classList.add('done');P.classList.add('done');if(!reduce)burst()},reduce?0:900+total*1000);
+  }
+  $('open').addEventListener('click',function(){
+    this.disabled=true;
+    if(reduce){read();return}
+    $('env').classList.add('open');
+    setTimeout(read,2300);
+  });
+})();
+</script>
+</body>
+</html>
