@@ -3,162 +3,184 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#f3e6fb">
-<title>A letter for you ❤️</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e58bb0' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+<title>DailyDrop | A little piece of everyone’s day</title>
+<meta name="description" content="DailyDrop is a private space for your friend group. Share one photo and a short caption a day, answer daily questions, and keep your memories together.">
+<meta name="theme-color" content="#11111B">
+<meta property="og:title" content="DailyDrop | A little piece of everyone’s day">
+<meta property="og:description" content="A private daily photo ritual for you and your friends.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A78BFA'/%3E%3Cpath d='M16 6c4 5 8 9 8 14a8 8 0 0 1-16 0c0-5 4-9 8-14z' fill='%2311111B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Great+Vibes&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{colors:{crust:'#11111B',s1:'#181825',s2:'#1E1E2E',acc:'#A78BFA',acc2:'#CBA6F7',tx:'#CDD6F4',mu:'#A6ADC8'},fontFamily:{sans:['Inter','system-ui','sans-serif'],display:['Manrope','Inter','system-ui','sans-serif']}}}}</script>
 <style>
-:root{--cream:#FFF8F1;--blush:#F4A6C1;--lav:#C9A8F0;--lav2:#EADDF7;--purple:#8A5CD6;--ink:#4B3A63}
-*{box-sizing:border-box;margin:0}
-html{-webkit-text-size-adjust:100%}
-body{min-height:100svh;font-family:Lora,Georgia,serif;color:var(--ink);background:var(--cream);overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;
- background:radial-gradient(60% 45% at 15% 8%,#f3e1ff 0,transparent 62%),radial-gradient(55% 40% at 95% 28%,#ffe2ec 0,transparent 60%),radial-gradient(70% 50% at 50% 105%,#eadcff 0,transparent 70%),var(--cream)}
-::selection{background:#f9d3e3}
-svg{display:block}
-/* floating hearts + sparkles (decor) */
-.fx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.h{position:absolute;bottom:-40px;fill:var(--c);opacity:0;animation:rise linear infinite;will-change:transform}
-.h svg{width:100%;height:100%;fill:inherit}
-@keyframes rise{0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}10%{opacity:.5}85%{opacity:.35}100%{opacity:0;transform:translate3d(var(--dx),-112vh,0) rotate(var(--r))}}
-.sp{position:absolute;width:var(--s);height:var(--s);background:#dcc6ff;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:tw var(--t) ease-in-out infinite}
-@keyframes tw{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:.85;transform:scale(1) rotate(45deg)}}
-/* envelope stage */
-.stage{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:42px;padding:24px;transition:opacity .9s ease,transform .9s ease}
-.stage.gone{opacity:0;transform:scale(1.1);pointer-events:none}
-.env{position:relative;width:min(84vw,340px);aspect-ratio:3/2;perspective:900px;filter:drop-shadow(0 18px 28px rgba(138,92,214,.28));animation:drop 1.2s cubic-bezier(.2,.8,.2,1) both}
-@keyframes drop{from{opacity:0;transform:translateY(26px) scale(.96)}}
-.env>*{position:absolute}
-.back{inset:0;background:#e3d2f5;border-radius:10px}
-.card{left:6%;right:6%;top:7%;height:86%;z-index:1;border-radius:6px;background:linear-gradient(#fffdf9,#fff3ea);box-shadow:0 0 0 1px rgba(201,168,240,.4);display:grid;place-items:center;transition:transform 1.1s cubic-bezier(.3,.7,.2,1) .95s}
-.card svg{width:26px;height:26px;fill:var(--blush)}
-.front{inset:0;z-index:2;border-radius:10px;background:linear-gradient(165deg,#f5eafc,#ecdcf7);clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%)}
-.flap{left:0;right:0;top:0;height:56%;z-index:3;transform-origin:top;background:linear-gradient(#e6d3f6,#d9bff0);clip-path:polygon(0 0,100% 0,50% 100%);transition:transform .9s ease,z-index 0s .45s}
-.seal{left:50%;top:56%;z-index:4;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#f7b4cb,#d9638f);box-shadow:0 3px 8px rgba(160,60,110,.35);transition:opacity .4s,transform .4s}
-.seal svg{width:22px;height:22px;fill:#fff}
-.env.open .flap{transform:rotateX(180deg);z-index:0}
-.env.open .seal{opacity:0;transform:scale(.5)}
-.env.open .card{transform:translateY(-62%)}
-.open-btn{font:600 1.65rem/1 'Dancing Script',cursive;color:#fff;padding:16px 34px;border:0;border-radius:99px;cursor:pointer;background:linear-gradient(120deg,#8A5CD6,#b8579f);box-shadow:0 10px 24px rgba(138,92,214,.35);animation:fadein 1s ease 1.1s both,pulse 2.6s ease-in-out 2.2s infinite;transition:transform .2s}
-.open-btn:hover{transform:translateY(-2px)}
-.open-btn:focus-visible{outline:3px solid var(--blush);outline-offset:4px}
-.open-btn:disabled{animation:none;opacity:.5;cursor:default}
-@keyframes fadein{from{opacity:0;transform:translateY(8px)}}
-@keyframes pulse{50%{box-shadow:0 10px 30px rgba(184,87,159,.55)}}
-/* letter */
-.letter{padding:calc(28px + env(safe-area-inset-top)) 14px calc(48px + env(safe-area-inset-bottom));opacity:0;transform:translateY(18px);transition:opacity 1.1s ease,transform 1.1s ease}
-.letter.in{opacity:1;transform:none}
-.paper{position:relative;max-width:560px;margin:0 auto;padding:44px 26px 34px;border-radius:20px;background:linear-gradient(#fffcf7,#fff5ee);box-shadow:0 24px 60px rgba(138,92,214,.22),0 0 0 1px rgba(201,168,240,.4)}
-.paper::before{content:"";position:absolute;inset:9px;border-radius:13px;border:1px solid rgba(201,168,240,.45);pointer-events:none}
-.orn{width:120px;height:18px;margin:0 auto 30px;fill:none;stroke:var(--lav);stroke-width:1.4;stroke-linecap:round}
-.orn svg{fill:var(--blush);stroke:none}
-.body{font-size:1.07rem;line-height:1.95;letter-spacing:.005em}
-.body p+p{margin-top:1.4em}
-.princess{text-align:center;margin-top:2em!important}
-.script{font-family:'Great Vibes',cursive;font-size:2.75rem;line-height:1.25;color:var(--purple)}
-@supports (-webkit-background-clip:text) or (background-clip:text){.script{background:linear-gradient(90deg,#8A5CD6,#d3689f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}}
-.sign{margin-top:1.4em;text-align:right;font-family:'Dancing Script',cursive;font-weight:600;font-size:2.3rem;line-height:1.2;color:#7a4fc4;display:flex;justify-content:flex-end;align-items:center;gap:10px}
-.sh{width:22px;height:22px;fill:#e0679a;transform-origin:center}
-.ul{width:150px;height:14px;margin:2px 0 0 auto;fill:none;stroke:var(--lav);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease}
-.show .ul{stroke-dashoffset:0;transition-delay:var(--ul,3s)}
-.done .sh{animation:beat 1.5s ease-in-out infinite}
-@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.3)}30%{transform:scale(1)}45%{transform:scale(1.2)}}
-.r{opacity:0;filter:blur(4px);transition:opacity .9s ease,filter .9s ease}
-.show .r{opacity:1;filter:none}
-.b{position:fixed;z-index:6;width:var(--w);height:var(--w);margin:-10px 0 0 -10px;fill:var(--c);pointer-events:none;animation:burst 2.2s ease-out forwards}
-.b svg{width:100%;height:100%;fill:inherit}
-@keyframes burst{0%{opacity:0;transform:translate(0,0) scale(.3)}15%{opacity:.95}100%{opacity:0;transform:translate(var(--bx),var(--by)) scale(1) rotate(var(--r))}}
-.gift{display:flex;justify-content:center;margin:30px auto 0;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 1s ease .7s,transform 1s ease .7s,visibility 0s .7s}
-.done .gift{opacity:1;visibility:visible;transform:none}
-.gift a{display:inline-flex;align-items:center;gap:10px;font:600 1.5rem/1 'Dancing Script',cursive;color:#fff;text-decoration:none;padding:15px 30px;border-radius:99px;background:linear-gradient(120deg,#8A5CD6,#b8579f);box-shadow:0 10px 24px rgba(138,92,214,.35);transition:transform .2s}
-.gift a:hover{transform:translateY(-2px)}
-.gift a:focus-visible{outline:3px solid var(--blush);outline-offset:4px}
-.gift svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-@media(min-width:600px){.paper{padding:60px 56px 44px}.body{font-size:1.15rem}.script{font-size:3.2rem}.letter{padding-top:48px}}
-@media(prefers-reduced-motion:reduce){.fx{display:none}.env,.open-btn{animation:none}.r{opacity:1;filter:none;transition:none}.ul{stroke-dashoffset:0;transition:none}.done .sh{animation:none}*{transition-duration:.01s!important;transition-delay:0s!important}}
+:root{color-scheme:dark;--bg:#11111B;--tx:#CDD6F4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:88px;background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:rgba(17,17,27,.85);backdrop-filter:blur(14px);z-index:60}
+.glass{background:rgba(30,30,46,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(205,214,244,.08)}
+.gt{background:linear-gradient(100deg,#CBA6F7,#A78BFA 55%,#89B4FA);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.rv.in{opacity:1;transform:none}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.fl{animation:fl 6s ease-in-out infinite}
+.card{transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.45);box-shadow:0 18px 40px -18px rgba(167,139,250,.5)}
+.snap{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.snap>*{scroll-snap-align:center}
+.snap::-webkit-scrollbar{display:none}
+a:focus-visible,button:focus-visible{outline:3px solid #CBA6F7;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.fl{animation:none}*{transition-duration:.01s!important}}
 </style>
-<noscript><style>.letter[hidden]{display:block;opacity:1;transform:none}.stage{display:none}.gift{opacity:1;visibility:visible;transform:none}.r{opacity:1;filter:none}.ul{stroke-dashoffset:0}</style></noscript>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol></svg>
-<div class="fx" id="fx" aria-hidden="true"></div>
-
-<main class="stage" id="stage">
-  <div class="env" id="env" aria-hidden="true">
-    <div class="back"></div>
-    <div class="card"><svg viewBox="0 0 24 24"><use href="#heart"/></svg></div>
-    <div class="front"></div>
-    <div class="flap"></div>
-    <div class="seal"><svg viewBox="0 0 24 24"><use href="#heart"/></svg></div>
-  </div>
-  <button class="open-btn" id="open" type="button">Open my letter ❤️</button>
-</main>
-
-<article class="letter" id="letter" hidden tabindex="-1" aria-label="A letter for you">
-  <div class="paper" id="paper">
-    <svg class="orn" viewBox="0 0 120 18" aria-hidden="true"><path d="M2 9h42M76 9h42"/><svg x="52" y="1" width="16" height="16" viewBox="0 0 24 24"><use href="#heart"/></svg></svg>
-    <div class="body">
-      <p data-reveal>I’m sorry honey, I didn’t mean to piss you off, I just wanted to call with you and I was like super duper tired so I couldn’t think straight, you mean the world to me, your my first, I might be annoying sometimes but I just wanna tell you I still love you no matter what, and I’ll always be with you no matter what ❤️ so please forgive me mommy, I’ll be a good boy and try not to piss you off, but please don’t be mad at me anymore and act jolly like you were acting you were so cute and I loved it.</p>
-      <p class="princess" data-reveal><span class="script">You my princess</span>, are worth more than you think you are to me ❤️</p>
-    </div>
-    <p class="sign" id="sign" data-reveal><span>- Anass</span><svg class="sh" viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg></p>
-    <svg class="ul" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 9c20-8 40 4 62-2s46-5 94-2" pathLength="1"/></svg>
-  </div>
-  <div class="gift"><a href="downloads/giftpic.jpg" download="giftpic.jpg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg>Download my gift</a></div>
-</article>
-
+<div id="root"></div>
+<script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
 <script>
-(function(){
-  var $=function(i){return document.getElementById(i)},rnd=function(a,b){return a+Math.random()*(b-a)};
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var COL=['#f4a6c1','#c9a8f0','#f7c6d9','#b793e6'];
-  var HEART='<svg viewBox="0 0 24 24"><use href="#heart"/></svg>';
-  var fx=$('fx');
-  if(!reduce){
-    for(var i=0;i<13;i++){var h=document.createElement('i'),s=rnd(12,28);h.className='h';h.innerHTML=HEART;
-      h.style.cssText='left:'+rnd(0,96)+'%;width:'+s+'px;height:'+s+'px;--c:'+COL[i%4]+';--dx:'+rnd(-70,70)+'px;--r:'+rnd(-28,28)+'deg;animation-duration:'+rnd(17,30)+'s;animation-delay:-'+rnd(0,26)+'s';fx.appendChild(h)}
-    for(var j=0;j<16;j++){var p=document.createElement('i');p.className='sp';
-      p.style.cssText='left:'+rnd(2,97)+'%;top:'+rnd(2,95)+'%;--s:'+rnd(7,14)+'px;--t:'+rnd(3,6)+'s;animation-delay:-'+rnd(0,6)+'s';fx.appendChild(p)}
-  }
-  // split every paragraph into clauses (lossless) so the words can appear one phrase at a time
-  var n=0;
-  document.querySelectorAll('[data-reveal]').forEach(function(el){
-    Array.prototype.slice.call(el.childNodes).forEach(function(node){
-      if(node.nodeType===3){
-        var f=document.createDocumentFragment();
-        (node.textContent.match(/[^,.]*[,.]?/g)||[]).filter(Boolean).forEach(function(t){var sp=document.createElement('span');sp.className='r';sp.textContent=t;f.appendChild(sp)});
-        node.replaceWith(f);
-      }else if(node.nodeType===1){node.classList.add('r')}
-    });
-  });
-  var items=document.querySelectorAll('.r');
-  items.forEach(function(el,k){el.style.transitionDelay=(k*0.3)+'s';n=k});
-  var total=(n*0.3)+1;
-  $('paper').style.setProperty('--ul',(Math.max(total-1.5,1))+'s');
+const { useState, useEffect, useRef } = React;
+const html = htm.bind(React.createElement);
 
-  function burst(){
-    var r=$('sign').getBoundingClientRect(),x=r.right-24,y=r.top+r.height/2;
-    if(y<0||y>innerHeight){x=innerWidth/2;y=innerHeight*.85}
-    for(var i=0;i<22;i++){var b=document.createElement('i'),w=rnd(12,24);b.className='b';b.innerHTML=HEART;
-      b.style.cssText='left:'+x+'px;top:'+y+'px;--w:'+w+'px;--c:'+COL[i%4]+';--bx:'+rnd(-150,150)+'px;--by:-'+rnd(90,280)+'px;--r:'+rnd(-40,40)+'deg;animation-delay:'+rnd(0,.5)+'s';
-      b.addEventListener('animationend',function(){this.remove()});document.body.appendChild(b)}
-  }
-  function read(){
-    var L=$('letter'),P=$('paper');
-    $('stage').classList.add('gone');L.hidden=false;
-    requestAnimationFrame(function(){requestAnimationFrame(function(){L.classList.add('in');L.focus({preventScroll:true})})});
-    setTimeout(function(){$('stage').style.display='none';P.classList.add('show')},reduce?0:900);
-    setTimeout(function(){L.classList.add('done');P.classList.add('done');if(!reduce)burst()},reduce?0:900+total*1000);
-  }
-  $('open').addEventListener('click',function(){
-    this.disabled=true;
-    if(reduce){read();return}
-    $('env').classList.add('open');
-    setTimeout(read,2300);
-  });
-})();
+/* ===== CONFIG: paste your real store links here when the app is published ===== */
+const CONFIG = { IOS_STORE_URL: '', ANDROID_STORE_URL: '' };
+
+/* ===== icons ===== */
+const P = {
+  camera: 'M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
+  users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75',
+  help: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01',
+  spark: 'M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z',
+  msg: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z',
+  lock: 'M5 11h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2zM7 11V7a5 5 0 0 1 10 0v4',
+  menu: 'M4 6h16M4 12h16M4 18h16', x: 'M18 6 6 18M6 6l12 12', check: 'M20 6 9 17l-5-5'
+};
+const Icon = ({ n, cls = 'h-6 w-6' }) => html`<svg viewBox="0 0 24 24" className=${cls} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d=${P[n]} /></svg>`;
+const Apple = () => html`<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>`;
+const Android = () => html`<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true"><path d="M17.523 15.34a1 1 0 1 1 0-2 1 1 0 0 1 0 2m-11.046 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2m11.405-6.02 2-3.46a.42.42 0 0 0-.15-.57.42.42 0 0 0-.57.15l-2.02 3.5A12.4 12.4 0 0 0 12 7.85c-1.85 0-3.59.39-5.14 1.1L4.84 5.45a.42.42 0 0 0-.57-.15.42.42 0 0 0-.15.57l2 3.46C2.69 11.19.34 14.66 0 18.76h24c-.34-4.1-2.69-7.57-6.12-9.44"/></svg>`;
+const Logo = ({ s = 'h-9 w-9' }) => html`<span className=${'grid place-items-center rounded-xl bg-gradient-to-br from-acc2 to-acc ' + s}><svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" fill="#11111B" aria-hidden="true"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></svg></span>`;
+
+/* ===== small shared pieces ===== */
+const Rv = ({ d = 0, cls = '', children }) => html`<div className=${'rv ' + cls} style=${{ '--d': d + 'ms' }}>${children}</div>`;
+const Eyebrow = ({ children }) => html`<p className="mb-3 text-sm font-semibold uppercase tracking-[.18em] text-acc2">${children}</p>`;
+
+const StoreButton = ({ os, onSoon }) => {
+  const ios = os === 'ios', url = ios ? CONFIG.IOS_STORE_URL : CONFIG.ANDROID_STORE_URL;
+  const go = () => { if (url) window.open(url, '_blank', 'noopener'); else onSoon(ios ? 'iOS' : 'Android'); };
+  return html`<button onClick=${go} className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[.06] px-5 py-3 text-left transition hover:-translate-y-0.5 hover:border-acc/60 hover:bg-white/10 hover:shadow-[0_12px_32px_-12px_rgba(167,139,250,.6)] active:translate-y-0">
+    <span className="text-acc2">${ios ? html`<${Apple}/>` : html`<${Android}/>`}</span>
+    <span className="leading-tight"><span className="block text-[11px] text-mu">Download for</span><span className="block font-display text-base font-bold text-tx">${ios ? 'iOS' : 'Android'}</span></span>
+  </button>`;
+};
+const Stores = ({ onSoon }) => html`<div className="flex flex-col gap-3 sm:flex-row"><${StoreButton} os="ios" onSoon=${onSoon}/><${StoreButton} os="android" onSoon=${onSoon}/></div>`;
+
+/* ===== phone mockup + fake "photos" (pure SVG, no image files) ===== */
+const SCENES = {
+  sunset: { g: ['#fbbf77', '#e879a6', '#5b3fa8'], el: '<circle cx="66" cy="40" r="9" fill="#ffe3b0"/><path d="M0 52Q25 40 50 50T100 46V70H0z" fill="#2a2150"/><path d="M0 61Q30 51 60 58T100 55V70H0z" fill="#1b1738"/>' },
+  coffee: { g: ['#3a2a3f', '#8a6376', '#3a2a3f'], el: '<ellipse cx="50" cy="52" rx="30" ry="6" fill="#241a2b"/><circle cx="50" cy="38" r="17" fill="#f4e6d8"/><circle cx="50" cy="38" r="12.5" fill="#8a5a44"/><path d="M50 43c-5-3-5-7-2-7 1.4 0 2 1 2 1s.6-1 2-1c3 0 3 4-2 7z" fill="#f4e6d8"/>' },
+  hike: { g: ['#8fd3f4', '#cba6f7', '#f5c2e7'], el: '<path d="M0 55L25 24l16 20 14-14 22 28 23-12V70H0z" fill="#6b5fb5"/><path d="M0 63L20 44l18 16 18-12 24 18 20-8V70H0z" fill="#3d3580"/><path d="M25 24l5 6-5-2-4 3z" fill="#fff" opacity=".8"/>' },
+  beach: { g: ['#ffd7a8', '#fbb6c9', '#a6e1fa'], el: '<circle cx="30" cy="30" r="8" fill="#fff3d6"/><rect y="46" width="100" height="24" fill="#4aa3c7"/><path d="M0 52q10-4 20 0t20 0 20 0 20 0 20 0V70H0z" fill="#79c4e0" opacity=".7"/>' },
+  night: { g: ['#1e1e2e', '#45365f', '#89559c'], el: '<circle cx="74" cy="20" r="6" fill="#f5e0dc"/><path d="M0 56h8V40h8v16h6V32h10v24h8V44h9v12h7V36h10v20h8V46h10v24H0z" fill="#11111B"/><g fill="#f9e2af"><rect x="12" y="46" width="2" height="2"/><rect x="26" y="40" width="2" height="2"/><rect x="40" y="48" width="2" height="2"/><rect x="63" y="42" width="2" height="2"/><rect x="82" y="50" width="2" height="2"/></g>' }
+};
+const Photo = ({ scene, cls = '' }) => {
+  const s = SCENES[scene], id = 'g-' + scene;
+  return html`<svg viewBox="0 0 100 70" preserveAspectRatio="xMidYMid slice" className=${cls} role="img" aria-label="Sample photo"><defs><linearGradient id=${id} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor=${s.g[0]}/><stop offset=".55" stopColor=${s.g[1]}/><stop offset="1" stopColor=${s.g[2]}/></linearGradient></defs><rect width="100" height="70" fill=${'url(#' + id + ')'}/><g dangerouslySetInnerHTML=${{ __html: s.el }}/></svg>`;
+};
+const AVC = { Maya: ['#f5c2e7', '#cba6f7'], Leo: ['#89b4fa', '#74c7ec'], Sara: ['#fab387', '#f9e2af'], Jonas: ['#a6e3a1', '#94e2d5'], You: ['#CBA6F7', '#A78BFA'], Priya: ['#f38ba8', '#fab387'] };
+const Av = ({ n, s = 'h-7 w-7', ring }) => html`<span className=${'grid shrink-0 place-items-center rounded-full text-[10px] font-bold text-crust ' + s + (ring ? ' ring-2 ring-acc ring-offset-2 ring-offset-s1' : '')} style=${{ background: `linear-gradient(135deg,${AVC[n][0]},${AVC[n][1]})` }}>${n[0]}</span>`;
+const Phone = ({ children, cls = '' }) => html`<div className=${'w-[260px] shrink-0 ' + cls}><div className="rounded-[40px] bg-[#0a0a12] p-[9px] ring-1 ring-white/10 shadow-[0_30px_80px_-24px_rgba(167,139,250,.5)]"><div className="relative h-[540px] overflow-hidden rounded-[32px] bg-crust text-[11px] text-tx"><div className="absolute left-1/2 top-2 z-10 h-[18px] w-[72px] -translate-x-1/2 rounded-full bg-black"></div><div className="flex justify-between px-6 pb-1 pt-3 text-[10px] font-semibold"><span>9:41</span><span>5G ▮▮▮</span></div>${children}</div></div></div>`;
+const Reacts = ({ a = '❤️ 4', b = '🔥 2', c = '💬 3' }) => html`<div className="mt-2 flex gap-1.5 text-[10px]">${[a, b, c].map(t => html`<span key=${t} className="rounded-full bg-white/[.07] px-2 py-0.5">${t}</span>`)}</div>`;
+const Post = ({ who, t, scene, cap, h = 'h-[150px]' }) => html`<div className="mx-3 mt-2 rounded-2xl bg-s2 p-2.5"><div className="flex items-center gap-2"><${Av} n=${who}/><div><div className="font-semibold">${who}</div><div className="text-[9px] text-mu">${t}</div></div></div><${Photo} scene=${scene} cls=${'mt-2 w-full rounded-xl ' + h}/><p className="mt-2">${cap}</p><${Reacts}/></div>`;
+
+const FeedScreen = () => html`<div><div className="flex items-center justify-between px-4 pt-3"><span className="font-display text-[15px] font-extrabold">DailyDrop</span><span className="rounded-full bg-acc/15 px-2 py-0.5 text-[9px] font-semibold text-acc">4 of 5 dropped</span></div>
+<div className="flex gap-2.5 px-4 py-3">${['You', 'Maya', 'Leo', 'Sara', 'Jonas'].map(n => html`<div key=${n} className="text-center"><${Av} n=${n} s="h-9 w-9" ring=${n !== 'Jonas'}/><div className="mt-1 text-[9px] text-mu">${n}</div></div>`)}</div>
+<${Post} who="Maya" t="2h ago" scene="sunset" cap="Golden hour from the rooftop ✨"/><${Post} who="Leo" t="5h ago" scene="hike" cap="Finally made it to the top"/></div>`;
+const PostScreen = () => html`<div><div className="px-4 pt-3 text-[13px] font-semibold text-mu">‹ <span className="text-tx">Sara’s drop</span></div>
+<${Photo} scene="coffee" cls="mx-3 mt-3 h-[210px] w-[calc(100%-24px)] rounded-2xl"/>
+<div className="px-4 pt-3"><p className="text-[12px] font-medium">Monday fuel. Do not talk to me before the second cup ☕</p><${Reacts} a="❤️ 6" b="😂 4" c="☕ 2"/></div>
+<div className="mx-3 mt-3 space-y-2">${[['Leo', 'this is the most you thing ever'], ['Maya', 'save me one next time!!'], ['Jonas', 'same energy every Monday']].map(([n, t]) => html`<div key=${n} className="flex gap-2 rounded-xl bg-s2 p-2"><${Av} n=${n} s="h-6 w-6"/><div><span className="font-semibold">${n}</span> <span className="text-mu">${t}</span></div></div>`)}</div></div>`;
+const QuestionScreen = () => html`<div className="px-4 pt-3"><div className="font-display text-[15px] font-extrabold">Daily question</div>
+<div className="mt-3 rounded-2xl bg-gradient-to-br from-acc/30 to-acc2/10 p-3 ring-1 ring-acc/30"><div className="text-[9px] font-semibold uppercase tracking-widest text-acc2">Today’s question</div><p className="mt-1 text-[14px] font-semibold leading-snug">What’s one small thing that made you smile today?</p></div>
+<div className="mt-3 space-y-2">${[['You', 'My coffee order came out with a heart on it'], ['Maya', 'The bakery guy remembered my name'], ['Leo', 'A dog in a tiny raincoat'], ['Sara', 'Finding a forgotten tenner in my jacket']].map(([n, t]) => html`<div key=${n} className="flex gap-2 rounded-xl bg-s2 p-2.5"><${Av} n=${n} s="h-6 w-6"/><div><div className="font-semibold">${n}</div><div className="text-mu">${t}</div></div></div>`)}</div>
+<div className="mt-3 flex items-center justify-between rounded-xl border border-white/10 px-3 py-2 text-mu"><span>Add a reaction…</span><span className="text-acc">Send</span></div></div>`;
+const ProfileScreen = () => html`<div className="px-4 pt-3 text-center"><${Av} n="Leo" s="mx-auto mt-3 h-16 w-16 text-[22px]"/><div className="mt-2 font-display text-[15px] font-extrabold">Leo Park</div><div className="text-mu">Dropping since March</div>
+<div className="mt-3 grid grid-cols-3 gap-2">${[['128', 'Drops'], ['47', 'Day streak'], ['23', 'Memories']].map(([a, b]) => html`<div key=${b} className="rounded-xl bg-s2 py-2"><div className="font-display text-[15px] font-extrabold text-acc2">${a}</div><div className="text-[9px] text-mu">${b}</div></div>`)}</div>
+<div className="mt-3 grid grid-cols-3 gap-1.5">${['hike', 'sunset', 'beach', 'night', 'coffee', 'hike'].map((s, i) => html`<${Photo} key=${i} scene=${s} cls="aspect-square w-full rounded-lg"/>`)}</div></div>`;
+
+/* ===== sections ===== */
+const Nav = ({ open, setOpen }) => {
+  const links = [['About', '#about'], ['Features', '#features'], ['How it works', '#how']];
+  return html`<header className="sticky z-50 border-b border-white/5 bg-crust/75 backdrop-blur-xl" style=${{ top: 'env(safe-area-inset-top,0px)' }}>
+    <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5" aria-label="Main">
+      <a href="#top" className="flex items-center gap-2.5 font-display text-lg font-extrabold"><${Logo}/>DailyDrop</a>
+      <div className="hidden items-center gap-8 md:flex">${links.map(([t, h]) => html`<a key=${h} href=${h} className="text-sm font-medium text-mu transition hover:text-tx">${t}</a>`)}<a href="#download" className="rounded-xl bg-acc px-4 py-2 text-sm font-bold text-crust transition hover:-translate-y-0.5 hover:bg-acc2">Download</a></div>
+      <button className="grid h-10 w-10 place-items-center rounded-xl text-tx md:hidden" onClick=${() => setOpen(!open)} aria-label=${open ? 'Close menu' : 'Open menu'} aria-expanded=${open}><${Icon} n=${open ? 'x' : 'menu'}/></button>
+    </nav>
+    ${open && html`<div className="border-t border-white/5 bg-crust/95 px-5 pb-5 pt-2 md:hidden">${links.map(([t, h]) => html`<a key=${h} href=${h} onClick=${() => setOpen(false)} className="block py-3 text-crust font-medium text-mu">${t}</a>`)}<a href="#download" onClick=${() => setOpen(false)} className="mt-2 block rounded-xl bg-acc py-3 text-center font-bold text-crust">Download</a></div>`}
+  </header>`;
+};
+
+const Hero = ({ onSoon }) => html`<section id="top" className="relative overflow-hidden px-5 pb-20 pt-14 md:pt-20">
+  <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[760px] -translate-x-1/2 rounded-full bg-acc/20 blur-[130px]"></div>
+  <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.1fr_.9fr]">
+    <div>
+      <${Rv}><span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[13px] text-acc2"><span className="h-1.5 w-1.5 rounded-full bg-acc2"></span>Your friends, your little corner of the internet</span><//>
+      <${Rv} d=${80}><h1 className="mt-6 font-display text-[2.75rem] font-extrabold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">A little piece of <span className="gt">everyone’s day.</span></h1><//>
+      <${Rv} d=${160}><p className="mt-6 max-w-xl text-lg leading-relaxed text-mu">DailyDrop is a private space for your friend group. Everyone shares one photo and a short caption each day, so you always know what the people you love are up to.</p><//>
+      <${Rv} d=${240} cls="mt-9"><${Stores} onSoon=${onSoon}/><//>
+    </div>
+    <${Rv} d=${200} cls="relative mx-auto">
+      <div className="absolute inset-0 -z-10 m-auto h-72 w-72 rounded-full bg-acc2/25 blur-[90px]"></div>
+      <${Phone} cls="lg:rotate-[4deg]"><${FeedScreen}/><//>
+      <div className="glass fl absolute -left-6 top-24 hidden rounded-2xl px-3 py-2 text-xs sm:block">📸 <b>Maya</b> just dropped</div>
+      <div className="glass fl absolute -right-6 bottom-28 hidden rounded-2xl px-3 py-2 text-xs sm:block" style=${{ animationDelay: '-3s' }}>❤️ 3 new reactions</div>
+    <//>
+  </div></section>`;
+
+const About = () => html`<section id="about" className="px-5 py-20 md:py-28"><div className="mx-auto max-w-4xl text-center">
+  <${Rv}><${Eyebrow}>About DailyDrop<//><h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">Your group’s daily little ritual.</h2><//>
+  <${Rv} d=${100}><p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-mu">Every day, everyone drops a photo and a few words about their day. No followers, no algorithm, no strangers. Just a small circle of friends who stay close, even when they’re far apart, one little moment at a time.</p><//>
+  <div className="mt-12 grid gap-4 sm:grid-cols-3">${[['One drop a day', 'A single photo and a caption. Simple enough to do every day.'], ['Only your people', 'Everything stays inside your invited friend group.'], ['Never lost', 'Your favorite moments are kept together as memories.']].map(([t, d], i) => html`<${Rv} key=${t} d=${i * 90}><div className="glass card h-full rounded-2xl p-6 text-left"><h3 className="font-display text-lg font-bold">${t}</h3><p className="mt-2 text-sm leading-relaxed text-mu">${d}</p></div><//>`)}</div>
+</div></section>`;
+
+const FEATURES = [['camera', 'Daily Drops', 'Share one photo and a short caption every day.'], ['users', 'Friends Feed', 'See everyone’s daily updates in one private feed.'], ['help', 'Daily Questions', 'Answer a shared question and discover everyone’s answers.'], ['spark', 'Memories', 'Keep a collection of your group’s favorite moments.'], ['msg', 'Reactions & Comments', 'Interact with your friends’ posts.'], ['lock', 'Private Groups', 'Keep your moments within your invited friend group.']];
+const Features = () => html`<section id="features" className="relative px-5 py-20 md:py-28"><div className="mx-auto max-w-6xl">
+  <${Rv} cls="max-w-2xl"><${Eyebrow}>Features<//><h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">Everything your group needs. Nothing it doesn’t.</h2><//>
+  <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">${FEATURES.map(([ic, t, d], i) => html`<${Rv} key=${t} d=${(i % 3) * 90}><div className="glass card group h-full rounded-3xl p-7"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-acc/15 text-acc2 transition group-hover:scale-110 group-hover:bg-acc/25"><${Icon} n=${ic}/></span><h3 className="mt-5 font-display text-xl font-bold">${t}</h3><p className="mt-2 leading-relaxed text-mu">${d}</p></div><//>`)}</div>
+</div></section>`;
+
+const How = () => html`<section id="how" className="px-5 py-20 md:py-28"><div className="mx-auto max-w-5xl">
+  <${Rv} cls="text-center"><${Eyebrow}>How it works<//><h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">Three steps. Zero pressure.</h2><//>
+  <div className="relative mt-14 grid gap-10 md:grid-cols-3">
+    <div className="absolute left-[16%] right-[16%] top-7 hidden h-px bg-gradient-to-r from-transparent via-acc/60 to-transparent md:block"></div>
+    ${[['Join your private friend group.', 'Open your invite and step into your group’s corner.'], ['Share a little piece of your day.', 'Snap a photo, add a caption, and drop it.'], ['Discover what everyone else has been up to.', 'Scroll the feed, answer the question, and react.']].map(([t, d], i) => html`<${Rv} key=${t} d=${i * 120} cls="relative text-center"><span className="relative mx-auto grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-acc2 to-acc font-display text-xl font-extrabold text-crust shadow-[0_0_40px_-6px_rgba(167,139,250,.8)]">${i + 1}</span><h3 className="mt-5 font-display text-xl font-bold">${t}</h3><p className="mx-auto mt-2 max-w-xs text-mu">${d}</p><//>`)}
+  </div></div></section>`;
+
+const Preview = () => html`<section id="preview" className="px-5 py-20 md:py-28"><div className="mx-auto max-w-6xl">
+  <${Rv} cls="text-center"><${Eyebrow}>App preview<//><h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">A look inside.</h2><p className="mx-auto mt-4 max-w-xl text-mu">Sample content shown. Names and photos are illustrations.</p><//>
+  <div className="snap -mx-5 mt-12 flex gap-6 overflow-x-auto px-5 pb-6 xl:mx-0 xl:justify-center xl:overflow-visible xl:px-0">${[['Home feed', FeedScreen], ['A daily drop', PostScreen], ['Daily question', QuestionScreen], ['Friend profile', ProfileScreen]].map(([t, S], i) => html`<${Rv} key=${t} d=${i * 80} cls="shrink-0"><${Phone}><${S}/><//><p className="mt-5 text-center text-sm font-medium text-mu">${t}</p><//>`)}</div>
+</div></section>`;
+
+const Download = ({ onSoon }) => html`<section id="download" className="px-5 py-20 md:py-28"><div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-s2 via-s1 to-crust px-6 py-16 text-center md:py-24">
+  <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-[560px] -translate-x-1/2 rounded-full bg-acc/30 blur-[110px]"></div>
+  <${Rv} cls="relative"><${Logo} s="mx-auto h-14 w-14"/><h2 className="mt-6 font-display text-4xl font-extrabold tracking-tight md:text-6xl">Your friends are <span className="gt">waiting.</span></h2><p className="mx-auto mt-5 max-w-lg text-lg text-mu">Make every day a little more memorable. Start dropping.</p><div className="mt-9 flex justify-center"><${Stores} onSoon=${onSoon}/></div><//>
+</div></section>`;
+
+const Footer = () => html`<footer className="border-t border-white/5 px-5 py-10"><div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-mu sm:flex-row"><a href="#top" className="flex items-center gap-2 font-display font-bold text-tx"><${Logo} s="h-7 w-7"/>DailyDrop</a><p>A little piece of everyone’s day.</p><p>© ${new Date().getFullYear()} DailyDrop</p></div></footer>`;
+
+const Toast = ({ msg }) => html`<div role="status" aria-live="polite" className=${'glass pointer-events-none fixed bottom-6 left-1/2 z-[70] -translate-x-1/2 rounded-2xl px-5 py-3 text-sm font-medium shadow-2xl transition-all duration-300 ' + (msg ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0')} style=${{ marginBottom: 'env(safe-area-inset-bottom,0px)' }}>${msg}</div>`;
+
+const App = () => {
+  const [open, setOpen] = useState(false), [toast, setToast] = useState(''), t = useRef();
+  const onSoon = os => { setToast(`DailyDrop for ${os} is coming soon.`); clearTimeout(t.current); t.current = setTimeout(() => setToast(''), 3200); };
+  useEffect(() => {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  return html`<${Nav} open=${open} setOpen=${setOpen}/><main><${Hero} onSoon=${onSoon}/><${About}/><${Features}/><${How}/><${Preview}/><${Download} onSoon=${onSoon}/></main><${Footer}/><${Toast} msg=${toast}/>`;
+};
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${App}/>`);
 </script>
 </body>
 </html>
