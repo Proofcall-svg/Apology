@@ -43,7 +43,7 @@ const { useState, useEffect, useRef } = React;
 const html = htm.bind(React.createElement);
 
 /* ===== CONFIG: paste your real store links here when the app is published ===== */
-const CONFIG = { IOS_STORE_URL: '', ANDROID_STORE_URL: '' };
+const CONFIG = { IOS_STORE_URL: '', ANDROID_STORE_URL: 'downloads/DailyDrop.apk' }; // relative path: put the APK in a downloads folder next to this file
 
 /* ===== icons ===== */
 const P = {
@@ -66,13 +66,13 @@ const Eyebrow = ({ children }) => html`<p className="mb-3 text-sm font-semibold 
 
 const StoreButton = ({ os, onSoon }) => {
   const ios = os === 'ios', url = ios ? CONFIG.IOS_STORE_URL : CONFIG.ANDROID_STORE_URL;
-  const go = () => { if (url) window.open(url, '_blank', 'noopener'); else onSoon(ios ? 'iOS' : 'Android'); };
+  const go = () => { if (!url) return onSoon(ios ? 'iOS' : 'Android'); if (/\.apk(\?|$)/i.test(url)) { const a = document.createElement('a'); a.href = url; a.download = ''; document.body.appendChild(a); a.click(); a.remove(); } else window.open(url, '_blank', 'noopener'); };
   return html`<button onClick=${go} className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[.06] px-5 py-3 text-left transition hover:-translate-y-0.5 hover:border-acc/60 hover:bg-white/10 hover:shadow-[0_12px_32px_-12px_rgba(167,139,250,.6)] active:translate-y-0">
     <span className="text-acc2">${ios ? html`<${Apple}/>` : html`<${Android}/>`}</span>
     <span className="leading-tight"><span className="block text-[11px] text-mu">Download for</span><span className="block font-display text-base font-bold text-tx">${ios ? 'iOS' : 'Android'}</span></span>
   </button>`;
 };
-const Stores = ({ onSoon }) => html`<div className="flex flex-col gap-3 sm:flex-row"><${StoreButton} os="ios" onSoon=${onSoon}/><${StoreButton} os="android" onSoon=${onSoon}/></div>`;
+const Stores = ({ onSoon }) => html`<div><div className="flex flex-col gap-3 sm:flex-row"><${StoreButton} os="ios" onSoon=${onSoon}/><${StoreButton} os="android" onSoon=${onSoon}/></div>${CONFIG.ANDROID_STORE_URL && html`<p className="mt-3 max-w-md text-xs leading-relaxed text-mu">Android: your browser may ask you to allow installation from this source. iOS is coming soon.</p>`}</div>`;
 
 /* ===== phone mockup + fake "photos" (pure SVG, no image files) ===== */
 const SCENES = {
